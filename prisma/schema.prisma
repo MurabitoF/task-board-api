@@ -48,10 +48,11 @@ model BoardUser {
 model Column {
   id String @id @default(uuid())
   name String
-  board Board @relation(fields: [boardId], references: [id])
-  boardId String
+  order Int
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
+  board Board @relation(fields: [boardId], references: [id])
+  boardId String
   cards Card[]
 }
 
@@ -59,6 +60,7 @@ model Card {
   id String @id @default(uuid())
   title String
   description String?
+  order Int
   column Column @relation(fields: [columnId], references: [id])
   columnId String
 }
