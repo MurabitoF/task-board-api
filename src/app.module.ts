@@ -1,11 +1,11 @@
-import { Module } from '@nestjs/common';
-import { AuthResolver } from './auth/auth.resolver';
-import { AuthModule } from './auth/auth.module';
-import { BoardModule } from './board/board.module';
+import { Module } from "@nestjs/common";
+import { AuthModule } from "./auth/auth.module";
+import { BoardModule } from "./board/board.module";
+import { PrismaModule } from "./prisma/prisma.module";
 
 @Module({
-  imports: [AuthModule, BoardModule],
-  controllers: [],
-  providers: [AuthResolver],
+	imports: [AuthModule, BoardModule, PrismaModule],
+	controllers: [],
+	providers: [],
 })
 export class AppModule {}
