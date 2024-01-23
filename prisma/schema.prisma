@@ -20,6 +20,7 @@ model User {
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
   boards BoardUser[]
+  cards Card[]
 }
 
 model Board {
@@ -63,4 +64,6 @@ model Card {
   order Int
   column Column @relation(fields: [columnId], references: [id])
   columnId String
+  owner User @relation(fields: [ownerId], references: [id])
+  ownerId String
 }
